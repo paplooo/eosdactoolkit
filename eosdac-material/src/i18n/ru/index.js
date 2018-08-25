@@ -1,7 +1,11 @@
 export default {
   constitution: {
     loading_constitution: 'Загрузка Конституции',
+<<<<<<< HEAD
     switch_contrast: 'Переключение темы',
+=======
+    switch_contrast: 'Контрастность переключателя',
+>>>>>>> master
   },
   default: {
     account_name: 'Имя пользователя',

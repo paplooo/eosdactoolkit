@@ -195,8 +195,12 @@ export default {
     manage_addressbook: 'Adressbuch verwalten',
     or_select_address_book: 'Oder wählen Sie ein Zielkonto aus dem Adressbuch',
     input_a_destination_account: 'Geben Sie ein Zielkonto ein',
+<<<<<<< HEAD
     total: 'Total',
     remaining: 'übrig'
+=======
+    total: 'Gesamt',
+>>>>>>> master
   },
   wp_member_view: {
     approx_USD: '(Ungef. Xxxx USD)',
