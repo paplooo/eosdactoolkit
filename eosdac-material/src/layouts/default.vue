@@ -7,16 +7,7 @@
         <q-icon v-else name="icon-menu-9" />
       </q-btn>
       <q-toolbar-title class="text-white q-pl-none">
-<<<<<<< HEAD
         <img src="statics/img/icon-signet-eosdacmemberclient175x48.svg" style="height:48px;" :title="$t('default.member_client')">
-=======
-        <q-icon style="font-size:35px;" name="icon-dac-balance" />
-        <span class="q-ml-sm q-mt-sm text-weight-thin vertical-middle" style="font-size:20px;">eos<b>DAC</b> {{ $t('default.member_client')}}</span>
-        <q-btn size="md" flat dense round class="q-ml-md"style="margin-top:2px"  @click="leftDrawerOpen = !leftDrawerOpen" :aria-label="$t('default.menu')">
-          <q-icon v-if="leftDrawerOpen" name="icon-ui-8" />
-          <q-icon v-else name="menu" />
-        </q-btn>
->>>>>>> master
       </q-toolbar-title>
       <div class="xs-hide sm-hide md-hide" v-if="getImported">
         <MenuDropdown class="no-pointer-events" v-if="getAccountName && getRegistered && getTokenBalance" iconColor="white" :label="$t('default.member_status')" :statusLabel="1" :sublabel="$t('default.registered')" icon="icon-topmenu-8" />
@@ -121,7 +112,6 @@
         <q-item-side icon="icon-register-3" />
         <q-item-main :label="$t('default.constitution')" sublabel="" />
       </q-item>
-      <!--
       <q-item to="/profile">
         <q-item-side icon="icon-menu-10" />
         <q-item-main :label="$t('default.profile')" sublabel="" />
@@ -134,7 +124,6 @@
         <q-item-side icon="icon-menu-8" />
         <q-item-main :label="$t('default.worker_proposals')" sublabel="" />
       </q-item>
-      -->
     </q-list>
     <q-list v-else no-border link inset-delimiter dark>
       <q-item @click.native="unlockAccount()">
