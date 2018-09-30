@@ -70,11 +70,10 @@
           <div v-if="!edit">
             <div class="q-title q-mb-md">{{ $t('profile.website') }}</div>
             <div class="text-dimwhite">{{form.url}}</div>
-            <div class="q-mt-md">
-              <q-btn v-for="(social, i) in parseSocialLinks()" class="on-left" :key ="i" round color="dark">
-                <q-icon  :name="'icon-'+social.icon" />
-              </q-btn>
-            </div>
+
+            <q-btn v-for="(social, i) in form.sameAs" :key ="i" round color="dark">
+              <q-icon  :name="'icon-'+social.icon" />
+            </q-btn>
           </div>
           <!-- on edit -->
           <div v-if="edit">
@@ -156,14 +155,13 @@ export default {
           "email": "",
           "url": "http://google.com",
           "image": "",
-          "sameAs": [{link:'https://www.twitter.com/neonexchange'},{link:'https://www.facebook.com/DonaldTrump/'}, {link: 'https://plus.google.com/+LukeStokes'}, {link:'https://steemit.com/@suesa'} ],
+          "sameAs": [{link:'https://www.twitter.com/neonexchange'},{link:'https://www.facebook.com/DonaldTrump/'}, {link: 'https://plus.google.com/+LukeStokes'} ],
           "timezone": new Date().getTimezoneOffset() //time-zone offset see: https://stackoverflow.com/questions/1091372/getting-the-clients-timezone-in-javascript
         }
 
 
     }
   },
-  
   computed: {
     ...mapGetters({
       getAccountName: 'account/getAccountName',
@@ -180,6 +178,7 @@ export default {
     }
   },
 
+
   methods:{
      onLoaded() {
         let img = this.$refs.profile_pic;
@@ -190,20 +189,16 @@ export default {
         this.loaded = true;
     },
 
-    parseSocialLinks(){
+    getSocialIconFromLink(){
       //supported social networks
       const icons = ['social-youtube-com', 'social-linkedin-com', 'social-ask-fm', 'social-tumblr-com', 
                     'social-weibo-com', 'social-qzoneqq-com', 'social-flickr-com', 'social-instagram-com',
                     'social-facebook-com', 'social-plusgoogle-com', 'social-meetup-com', 'social-ok-ru',
-                    'social-reddit-com', 'social-twitter-com', 'social-vk-com', 'social-pinterest-com',
-                    'social-behance-net', 'social-dribble-com', 'social-github-com', 'social-medium-com',
-                    'social-steemit-com', 'social-general'];
+                    'social-reddit-com', 'social-twitter-com', 'social-vk-com', 'social-pinterest-com'];
       
       let lookup = icons.map(icon=> { return icon.split('-')[1] } );
 
-      let links = this.form.sameAs;
-      links.forEach((obj, index) => {
-        
+      this.form.sameAs.forEach((obj, index) => {
         
         let urlparts = new URL(obj.link);//does not work in IE
         let hostparts = urlparts.hostname.split('.');
@@ -215,13 +210,10 @@ export default {
         let host = hostparts.join('');
         let i = lookup.indexOf(host);
         if(i > -1){
-          links[index]['icon'] = icons[i];
+          this.form.sameAs[index]['icon'] = icons[i];
         }
-        else{
-          links[index]['icon'] = 'social-general'
-        }
+        //else default icon?
       });
-      return links;
     },
 
     addSocial(){
@@ -306,7 +298,7 @@ export default {
   },
 
   mounted: function(){
-      // this.getSocialIconFromLink();
+      this.getSocialIconFromLink();
    }
 
 }
