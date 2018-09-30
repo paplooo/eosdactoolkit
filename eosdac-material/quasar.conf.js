@@ -8,12 +8,20 @@ module.exports = function(ctx) {
       'axios',
       'configloader',
       'eosdac-iconfont',
+<<<<<<< HEAD
       'ipfs',
       'scatter'
+=======
+      'scatter',
+      'consolemessage',
+      'helper',
+      'medium-editor'
+>>>>>>> upstream/dev
     ],
     css: [
       'app.styl',
-      'github-markdown.css'
+      'github-markdown.css',
+      '~medium-editor/dist/css/medium-editor.min.css'
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
@@ -45,9 +53,8 @@ module.exports = function(ctx) {
         cfg.module.rules.push({
           resourceQuery: /blockType=i18n/,
           use: [{
-              loader: '@kazupon/vue-i18n-loader'
-            }
-          ]
+            loader: '@kazupon/vue-i18n-loader'
+          }]
         })
 
         for (const rule of cfg.module.rules) {
@@ -116,7 +123,11 @@ module.exports = function(ctx) {
         'QPagination',
         'QSearch',
         'QSlider',
-        'QToggle'
+        'QToggle',
+        'QTooltip',
+        'QAutocomplete',
+        'QBtnToggle',
+        'QScrollObservable'
       ],
       directives: [
         'Ripple',
@@ -133,7 +144,7 @@ module.exports = function(ctx) {
       i18n: 'en-us'
     },
     // animations: 'all' --- includes all animations
-    animations: [],
+    animations: ['fadeInDown', 'fadeOutUp', 'fadeInUp', 'fadeOutDown'],
     pwa: {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},

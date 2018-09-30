@@ -30,8 +30,8 @@
   <q-collapsible  label="First"  separator  header-class="bg-dark2"  collapse-icon="icon-ui-11">
     <template slot="header" >
       <q-item-side left >
-        <q-icon v-if="getRegistered" name="icon-ui-15" color="white"  size="24px" />
-        <q-icon v-else name="icon-topmenu-7" color="white"  size="24px" />
+        <q-icon v-if="getRegistered" name="icon-role-3" color="white"  size="24px" />
+        <q-icon v-else name="icon-role-1" color="white"  size="24px" />
       </q-item-side>
       <q-item-main >
         <span>{{ $t("settings.member_status") }}</span>
@@ -100,6 +100,10 @@
         <p class="q-title" ></p>
         <div class="q-mt-lg">
           <q-toggle  class="float-left" v-model="transactionpopup" color="p-light" left-label :label="$t('settings.transaction_popup_label')" />
+<<<<<<< HEAD
+=======
+          <!-- <q-toggle  class="float-left" v-model="consolemessage" color="p-light" left-label :label="$t('settings.console_message_label')" /> -->
+>>>>>>> upstream/dev
         </div>
       </div>
     </div>
